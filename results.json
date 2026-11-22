@@ -1,0 +1,594 @@
+{
+  "generated": "2026-11-22",
+  "note": "Generated apartments (example data). The circuit-level check is the reference; it follows NEC 210.19(A)/210.20(A): continuous load x 125% + other load must fit the breaker.",
+  "sample": {
+    "changes": [
+      {
+        "deviceId": "d1",
+        "from": {
+          "outletId": "desk",
+          "strip": true,
+          "lowIn": []
+        },
+        "to": {
+          "outletId": "win",
+          "lowIn": [],
+          "strip": false
+        }
+      },
+      {
+        "deviceId": "d6",
+        "from": {
+          "outletId": "sofa",
+          "strip": false,
+          "lowIn": []
+        },
+        "to": {
+          "outletId": "tvwall",
+          "lowIn": [
+            "evening"
+          ],
+          "strip": false
+        }
+      },
+      {
+        "deviceId": "d9",
+        "from": {
+          "outletId": "kl",
+          "strip": false,
+          "lowIn": []
+        },
+        "to": {
+          "outletId": "kr",
+          "lowIn": [],
+          "strip": false
+        }
+      }
+    ],
+    "before": {
+      "trips": 2,
+      "tight": 1,
+      "heaterOnStrip": 1
+    },
+    "after": {
+      "trips": 0,
+      "tight": 0,
+      "heaterOnStrip": 0
+    },
+    "combinationsChecked": 192
+  },
+  "dev": {
+    "set": "dev (seeds 1000-1019, used while building)",
+    "homes": 20,
+    "unsafeBefore": 12,
+    "perOutletCheck": {
+      "missedUnsafe": 4,
+      "falseAlarms": 0
+    },
+    "roomTotalCheck": {
+      "missedUnsafe": 0,
+      "falseAlarms": 0
+    },
+    "solver": {
+      "homesNeedingFix": 18,
+      "plansWithNoTrip": 9,
+      "cleanPlans": 8,
+      "cleanPlansWithoutLow": 3,
+      "avgChanges": 1.11,
+      "tripsBefore": 17,
+      "tripsAfter": 10,
+      "heaterOnStripBefore": 5,
+      "heaterOnStripAfter": 0,
+      "refused": 0
+    },
+    "cases": [
+      {
+        "home": "Generated home 1",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 216
+      },
+      {
+        "home": "Generated home 2",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 2,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 16
+      },
+      {
+        "home": "Generated home 3",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 216
+      },
+      {
+        "home": "Generated home 4",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 24
+      },
+      {
+        "home": "Generated home 5",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 8
+      },
+      {
+        "home": "Generated home 6",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 432
+      },
+      {
+        "home": "Generated home 7",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 48
+      },
+      {
+        "home": "Generated home 8",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 128
+      },
+      {
+        "home": "Generated home 9",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 288
+      },
+      {
+        "home": "Generated home 10",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 24
+      },
+      {
+        "home": "Generated home 11",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 288
+      },
+      {
+        "home": "Generated home 12",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 5184
+      },
+      {
+        "home": "Generated home 13",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 2,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 72
+      },
+      {
+        "home": "Generated home 14",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 6
+      },
+      {
+        "home": "Generated home 15",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 15552
+      },
+      {
+        "home": "Generated home 16",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 864
+      },
+      {
+        "home": "Generated home 17",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 48
+      },
+      {
+        "home": "Generated home 18",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 2,
+        "heaterLowRoutines": 3,
+        "combinationsChecked": 128
+      },
+      {
+        "home": "Generated home 19",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 144
+      },
+      {
+        "home": "Generated home 20",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 432
+      }
+    ]
+  },
+  "holdout": {
+    "set": "holdout (seeds 9000-9019, run once after freeze)",
+    "homes": 20,
+    "unsafeBefore": 11,
+    "perOutletCheck": {
+      "missedUnsafe": 5,
+      "falseAlarms": 0
+    },
+    "roomTotalCheck": {
+      "missedUnsafe": 2,
+      "falseAlarms": 2
+    },
+    "solver": {
+      "homesNeedingFix": 18,
+      "plansWithNoTrip": 12,
+      "cleanPlans": 11,
+      "cleanPlansWithoutLow": 2,
+      "avgChanges": 1.22,
+      "tripsBefore": 16,
+      "tripsAfter": 7,
+      "heaterOnStripBefore": 7,
+      "heaterOnStripAfter": 0,
+      "refused": 0
+    },
+    "cases": [
+      {
+        "home": "Generated home 21",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 6
+      },
+      {
+        "home": "Generated home 22",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 4
+      },
+      {
+        "home": "Generated home 23",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 2,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 72
+      },
+      {
+        "home": "Generated home 24",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 2,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 32
+      },
+      {
+        "home": "Generated home 25",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 288
+      },
+      {
+        "home": "Generated home 26",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 6
+      },
+      {
+        "home": "Generated home 27",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 36
+      },
+      {
+        "home": "Generated home 28",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 432
+      },
+      {
+        "home": "Generated home 29",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 16
+      },
+      {
+        "home": "Generated home 30",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 288
+      },
+      {
+        "home": "Generated home 31",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 2,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 192
+      },
+      {
+        "home": "Generated home 32",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 864
+      },
+      {
+        "home": "Generated home 33",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 12
+      },
+      {
+        "home": "Generated home 34",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 96
+      },
+      {
+        "home": "Generated home 35",
+        "unsafeBefore": false,
+        "hardBefore": 1,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 216
+      },
+      {
+        "home": "Generated home 36",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 2,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 3,
+        "heaterLowRoutines": 3,
+        "combinationsChecked": 384
+      },
+      {
+        "home": "Generated home 37",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 192
+      },
+      {
+        "home": "Generated home 38",
+        "unsafeBefore": true,
+        "hardBefore": 1,
+        "tightBefore": 0,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 2,
+        "heaterLowRoutines": 2,
+        "combinationsChecked": 1296
+      },
+      {
+        "home": "Generated home 39",
+        "unsafeBefore": true,
+        "hardBefore": 0,
+        "tightBefore": 0,
+        "perOutletFlags": true,
+        "roomTotalFlags": true,
+        "planClean": false,
+        "changes": 0,
+        "heaterLowRoutines": 0,
+        "combinationsChecked": 16
+      },
+      {
+        "home": "Generated home 40",
+        "unsafeBefore": false,
+        "hardBefore": 0,
+        "tightBefore": 1,
+        "perOutletFlags": false,
+        "roomTotalFlags": false,
+        "planClean": true,
+        "changes": 1,
+        "heaterLowRoutines": 1,
+        "combinationsChecked": 36
+      }
+    ]
+  }
+}

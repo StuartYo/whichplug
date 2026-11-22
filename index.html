@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WhichPlug: find out which outlets share a breaker before you plug in a space heater</title>
+  <meta name="description" content="Map which outlets share a breaker, add what you plug in, and get a plug plan that keeps space heaters off power strips and every circuit under its limit.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-row">
+      <div class="brand">
+        <svg class="ico brand-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+        <span>WhichPlug</span>
+      </div>
+      <p class="tagline">Which outlets share a breaker, and where the space heater should go.</p>
+      <div class="top-actions">
+        <button class="btn ghost" id="btn-sample" type="button">Load sample apartment</button>
+        <button class="btn ghost" id="btn-new" type="button">Start my own</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap grid" id="app">
+    <section class="col col-breakers" aria-labelledby="h-breakers">
+      <div class="col-head">
+        <h2 id="h-breakers"><span class="step">1</span>Breakers</h2>
+        <button class="btn small" id="btn-map" type="button">Map a breaker</button>
+      </div>
+      <div id="breakers"></div>
+      <details class="add" id="add-outlet">
+        <summary>Add an outlet</summary>
+        <form id="form-outlet" class="form">
+          <label>Room<input name="room" required placeholder="Bedroom" autocomplete="off"></label>
+          <label>Outlet name<input name="name" required placeholder="Next to the bed" autocomplete="off"></label>
+          <button class="btn small" type="submit">Add outlet</button>
+        </form>
+      </details>
+    </section>
+
+    <section class="col col-load" aria-labelledby="h-load">
+      <div class="col-head">
+        <h2 id="h-load"><span class="step">2</span>Load on each breaker</h2>
+        <div class="seg" role="tablist" id="scenarios"></div>
+      </div>
+      <p class="view-note" id="view-note"></p>
+      <p class="legend"><i></i>Bars show the share of each breaker's rating. The line marks 80%: the limit once a heater is running, because heaters stay on for hours and count at 125%.</p>
+      <div id="loads"></div>
+      <div class="col-head sub">
+        <h3>What you plug in</h3>
+      </div>
+      <div id="devices"></div>
+      <details class="add" id="add-device">
+        <summary>Add a device</summary>
+        <form id="form-device" class="form form-device">
+          <label>Device<select name="lib" id="sel-lib"></select></label>
+          <label>Watts (from the label)<input name="watts" type="number" min="1" max="3000" required inputmode="numeric"></label>
+          <label>Outlet<select name="outlet" id="sel-outlet" required></select></label>
+          <fieldset><legend>Used during</legend>
+            <label class="chk"><input type="checkbox" name="morning" checked>Morning rush</label>
+            <label class="chk"><input type="checkbox" name="evening" checked>Evening</label>
+          </fieldset>
+          <fieldset><legend>Options</legend>
+            <label class="chk"><input type="checkbox" name="strip">On a power strip or extension cord</label>
+            <label class="chk"><input type="checkbox" name="movable">I can move it to another outlet in the room</label>
+          </fieldset>
+          <button class="btn small" type="submit">Add device</button>
+        </form>
+      </details>
+    </section>
+
+    <section class="col col-plan" aria-labelledby="h-plan">
+      <div class="col-head">
+        <h2 id="h-plan"><span class="step">3</span>Plug plan</h2>
+      </div>
+      <button class="btn primary block" id="btn-solve" type="button">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+        Find a safe plug plan
+      </button>
+      <div id="plan" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p><strong>Safety.</strong> Only switch breakers on and off; never open the panel cover. If a plug or outlet feels hot, smells burnt, or looks discolored, stop using it and tell your landlord or an electrician. WhichPlug uses the U.S. 120 V numbers and the NEC rule that a continuous load counts at 125%. It does not replace an electrician.</p>
+    <p class="muted">Your data stays in this browser (localStorage). Sample apartment and appliance watts are example data; use the numbers on your own labels. <a href="https://github.com/" id="repo-link">Source and method</a>.</p>
+  </footer>
+
+  <dialog id="map-dialog" aria-labelledby="map-title">
+    <form method="dialog" id="form-map" class="form map-form">
+      <h2 id="map-title">Map one breaker</h2>
+      <ol class="howto">
+        <li>Plug a lamp or phone charger into the outlets you want to test.</li>
+        <li>At the panel, switch off <strong>one</strong> breaker.</li>
+        <li>Tick every outlet that lost power, then switch the breaker back on.</li>
+      </ol>
+      <div id="map-outlets" class="map-outlets"></div>
+      <div class="row2">
+        <label>Name on the panel<input name="label" required placeholder="Breaker 7" autocomplete="off"></label>
+        <label>Number on the switch<select name="amps"><option value="15">15 A</option><option value="20">20 A</option></select></label>
+      </div>
+      <p class="form-error" id="map-error" role="alert"></p>
+      <div class="dialog-actions">
+        <button class="btn ghost" value="cancel" type="submit" formnovalidate>Cancel</button>
+        <button class="btn primary" id="btn-save-breaker" type="submit" value="save">Save breaker</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

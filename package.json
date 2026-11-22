@@ -1,0 +1,11 @@
+{
+  "name": "whichplug",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/engine.test.mjs",
+    "eval": "node eval/run.mjs"
+  }
+}
